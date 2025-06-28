@@ -10,8 +10,8 @@ function App() {
       <Header />
       <SidebarProvider>
         <AppSidebar />
-        <main className="w-full">
-          <SidebarTrigger className={"lg:hidden"} />
+        <SidebarTrigger className={"lg:hidden"} />
+        <main className="w-full py-7 xl:px-40 px-20">
           <Outlet />
         </main>
       </SidebarProvider>
