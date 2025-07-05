@@ -5,6 +5,7 @@ function Footer() {
       <p>
         Made with ❤️ by{" "}
         <a
+          target="_blank"
           className="text-xl text-blue-800 hover:text-blue-500 transition"
           href="https://github.com/magma-mohannad"
         >

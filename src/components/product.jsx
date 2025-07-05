@@ -1,6 +1,14 @@
+import { useCartStore } from "@/store";
 import { Button } from "./ui/button";
 
 function Product({ product }) {
+  const discountedPrice = (
+    product.price -
+    (product.price * product.discountPercentage) / 100
+  ).toFixed(2);
+
+  const { addToCart, removeFromCart, cart } = useCartStore((state) => state);
+
   return (
     <div className=" bg-zinc-400/10 rounded-xl p-6 hover:shadow-xl shadow-zinc-500 transition-shadow cursor-pointer">
       <div className="flex justify-center items-center mb-2 ">
@@ -19,11 +27,34 @@ function Product({ product }) {
             {product.description}
           </p>
         </div>
-        <div className="flex xl:flex-row flex-col justify-between items-center my-3">
-          <span className="text-2xl font-semibold text-zinc-900">
-            ${product.price}
-          </span>
-          <Button>Add to Cart</Button>
+        <div className="flex 2xl:flex-row flex-col justify-between items-center my-3">
+          <div className="flex items-center gap-2">
+            <h2 className="text-2xl font-semibold">${discountedPrice}</h2>
+            <p className="text-zinc-600 text-lg line-through">
+              ${product.price}
+            </p>
+          </div>
+          {cart.length > 0 && cart.find((item) => item.id === product.id) ? (
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                removeFromCart(product.id);
+              }}
+              className="mt-1.5 bg-rose-800 hover:bg-rose-700 transition"
+            >
+              Remove from Cart
+            </Button>
+          ) : (
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(product);
+              }}
+              className="mt-1.5"
+            >
+              Add to Cart
+            </Button>
+          )}
         </div>
       </div>
     </div>
