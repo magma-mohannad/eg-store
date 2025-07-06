@@ -17,7 +17,7 @@ function App() {
       <Header />
       <SidebarProvider>
         {pathname === "/" && <AppSidebar />}
-        <main className="w-full py-7 xl:px-20 sm:px-18 px-1p">
+        <main className="w-full py-7 xl:px-20 sm:px-20 px-10">
           <Outlet />
         </main>
         {pathname === "/" && (

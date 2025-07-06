@@ -10,7 +10,7 @@ function Product({ product }) {
   const { addToCart, removeFromCart, cart } = useCartStore((state) => state);
 
   return (
-    <div className=" bg-zinc-400/10 rounded-xl p-6 hover:shadow-xl shadow-zinc-500 transition-shadow cursor-pointer">
+    <div className=" bg-zinc-400/10  rounded-xl p-6 hover:shadow-xl shadow-zinc-500 dark:shadow-zinc-100/70 transition-shadow cursor-pointer">
       <div className="flex justify-center items-center mb-2 ">
         <img
           src={product.thumbnail}
@@ -20,17 +20,17 @@ function Product({ product }) {
       </div>
       <div className="flex flex-col gap-4">
         <div>
-          <h1 className="text-lg font-semibold text-zinc-800 truncate">
+          <h1 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 truncate">
             {product.title}
           </h1>
-          <p className="text-sm text-zinc-600 truncate">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 truncate">
             {product.description}
           </p>
         </div>
         <div className="flex 2xl:flex-row flex-col justify-between items-center my-3">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold">${discountedPrice}</h2>
-            <p className="text-zinc-600 text-lg line-through">
+            <p className="text-zinc-600 dark:text-zinc-100 text-lg line-through">
               ${product.price}
             </p>
           </div>

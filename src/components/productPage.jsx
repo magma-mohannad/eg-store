@@ -54,7 +54,7 @@ function ProductPage() {
   ).toFixed(2);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 p-20 lg:p-0 gap-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:p-20 p-7 lg:p-0 gap-20">
       {/* Image Carousel Section */}
       <div className="">
         <Carousel>
@@ -80,13 +80,17 @@ function ProductPage() {
           <ChevronRight />
         </Button>
         <h2 className="text-2xl font-semibold">{data.title}</h2>
-        <p className="text-zinc-600 text-xl ">{data.description}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 text-xl ">
+          {data.description}
+        </p>
         <div className="flex items-center gap-4">
           <RatingStars rating={data.rating} />
         </div>
         <div className="flex items-center gap-2">
           <h2 className="text-2xl font-semibold">${discountedPrice}</h2>
-          <p className="text-zinc-600 text-lg line-through">${data.price}</p>
+          <p className="text-zinc-600 dark:text-zinc-200 text-lg line-through">
+            ${data.price}
+          </p>
         </div>
         {/* Reviews Section */}
         <div className="mt-8 w-full">
@@ -118,11 +122,15 @@ function ProductPage() {
                     </div>
                     <RatingStars rating={review.rating} />
                   </div>
-                  <p className="mt-2 ml-2 text-zinc-700">{review.comment}</p>
+                  <p className="mt-2 ml-2 text-zinc-700 dark:text-zinc-200">
+                    {review.comment}
+                  </p>
                 </Card>
               ))
             ) : (
-              <p className="text-zinc-500">No reviews yet.</p>
+              <p className="text-zinc-500 dark:text-zinc-200">
+                No reviews yet.
+              </p>
             )}
           </div>
         </div>

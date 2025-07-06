@@ -13,7 +13,7 @@ function Star({ filled = false, half = false }) {
         </svg>
         <svg
           viewBox="0 0 576 512"
-          className="absolute left-0 top-0 w-6 h-6 text-zinc-400"
+          className="absolute left-0 top-0 w-6 h-6 text-zinc-400 "
           fill="currentColor"
           style={{ clipPath: "inset(0 0 0 50%)" }}
         >
@@ -50,7 +50,9 @@ function RatingStars({ rating, max = 5 }) {
       {[...Array(emptyStars)].map((_, i) => (
         <Star key={"empty" + i} />
       ))}
-      <span className="ml-2 text-sm text-gray-500">{rating}</span>
+      <span className="ml-2 text-sm text-gray-500 dark:text-zinc-200">
+        {rating}
+      </span>
     </div>
   );
 }

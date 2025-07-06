@@ -9,8 +9,8 @@ function CheckOutPage() {
   return (
     <div>
       <h1 className="text-2xl">Check Out Page</h1>
-      <div className="grid grid-cols-4 gap-5 m-3 p-3">
-        <div className="col-span-3">
+      <div className="grid lg:grid-cols-4 gap-5 m-3 p-3">
+        <div className="lg:col-span-3">
           {cart.length > 0 ? (
             cart.map((item) => <CheckOutItem product={item} />)
           ) : (
