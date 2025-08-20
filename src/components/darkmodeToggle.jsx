@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { useSpring, animated } from "react-spring";
 import { useTheme } from "./themeProvider";
 
